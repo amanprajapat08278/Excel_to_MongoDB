@@ -7,7 +7,7 @@ const createAccount = async (req, res) => {
         let data = req.body
 
         let userId = req.params.userId
-        //validation for userId
+        if (!isValidObjectId(userId)) { return res.status(400).send({ status: false, message: "Please enter a valid userId" }) }
 
         let userData = await userModel.findById({ _id: userId })
 
@@ -32,7 +32,7 @@ const createAccount = async (req, res) => {
 const getAccount = async (req, res) => {
     try {
         let userId = req.params.userId
-        //validation for userId
+        if (!isValidObjectId(userId)) { return res.status(400).send({ status: false, message: "Please enter a valid userId" }) }
 
         let result = await userAccountModel.findOne({ userId: userId })
 
@@ -51,7 +51,7 @@ const getAccount = async (req, res) => {
 const updateAccount = async (req, res) => {
     try {
         let userId = req.params.userId
-        //validation for userId
+        if (!isValidObjectId(userId)) { return res.status(400).send({ status: false, message: "Please enter a valid userId" }) }
 
         let acoountData = await userAccountModel.findOne({ userId: userId })
 
@@ -79,7 +79,7 @@ const updateAccount = async (req, res) => {
 const deleteAccount = async (req, res) => {
     try {
         let userId = req.params.userId
-        //validation for userId
+        if (!isValidObjectId(userId)) { return res.status(400).send({ status: false, message: "Please enter a valid userId" }) }
 
         let accountData = await userAccountModel.findOne({ userId: userId })
 

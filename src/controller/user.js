@@ -42,7 +42,7 @@ const getUser = async (req, res) => {
 const getUserById = async (req, res) => {
     try {
         let userId = req.params.userId
-        //validation for userId
+        if (!isValidObjectId(userId)) { return res.status(400).send({ status: false, message: "Please enter a valid userId" }) }
 
         let result = await userModel.findById({ _id: userId })
 
@@ -60,7 +60,7 @@ const getUserById = async (req, res) => {
 const updateUser = async (req, res) => {
     try {
         let userId = req.params.userId
-        //validation for userId
+        if (!isValidObjectId(userId)) { return res.status(400).send({ status: false, message: "Please enter a valid userId" }) }
 
         let userData = await userModel.findById({ _id: userId })
 
@@ -87,7 +87,7 @@ const updateUser = async (req, res) => {
 const deleteUser = async (req, res) => {
     try {
         let userId = req.params.userId
-        //validation for userId
+        if (!isValidObjectId(userId)) { return res.status(400).send({ status: false, message: "Please enter a valid userId" }) }
 
         let userData = await userModel.findById({ _id: userId })
 

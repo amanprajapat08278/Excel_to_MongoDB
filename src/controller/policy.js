@@ -37,6 +37,8 @@ const getPolicy = async (req, res) => {
 
         let result = await policyModel.findOne({ userId: userId })
 
+        if (!result) { return res.status(404).send({ status: false, message: "Policy not found" }) }
+
         return res.status(200).send({ status: true, data: result })
 
     } catch (err) {

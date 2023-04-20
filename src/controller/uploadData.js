@@ -22,7 +22,7 @@ const upoladData = async (req, res) => {
             .on('end', () => {
 
                 let dataLength = result.length;
-                
+                if(dataLength==0){return res.status(400).send({status:false, message : "No data in the file"})}
 
                 result.forEach(async (data, i) => {
 
@@ -123,17 +123,6 @@ const upoladData = async (req, res) => {
 }
 
 
-const deleteAll = async (req, res) => {
-
-    await userModel.deleteMany()
-    await agentModel.deleteMany()
-    await LOBModel.deleteMany()
-    await policyModel.deleteMany()
-    await userAccountModel.deleteMany()
-    await carrierModel.deleteMany()
-
-    res.send("dlete")
-}
 
 
-module.exports = { upoladData, deleteAll }
+module.exports = { upoladData }
