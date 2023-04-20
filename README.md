@@ -1,7 +1,9 @@
 # Excel_to_MongoDB
 
 
+Assignmnet is almost Done according to guidelines mentioned in the assignment brief
 
-1) Create API to upload the attached XLSX/CSV data into MongoDB.
-2) CRUD operation for User, Account, and Policy
-3) Consider each info as a different collection in MongoDB (Agent, User, User's Account, LOB, Carrier, Policy).
+
+=> we can use validations for email, phone, zip etc...
+=> We can use middleware to write validations for userId (beacause almost every api has userId in params
+   so we can use middleware)
